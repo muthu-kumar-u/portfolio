@@ -12,7 +12,7 @@ export default defineConfig({
   },
   // Set this to your repo name when deploying to GitHub Pages, e.g. "/muthukumar-portfolio/".
   // Leave as "/" for Vercel or a custom domain.
-  base: "/",
+  base: "/portfolio/",
   server: {
     port: 5173,
   },
