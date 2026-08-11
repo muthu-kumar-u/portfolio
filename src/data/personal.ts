@@ -12,7 +12,7 @@ export const personal = {
   email: "muthu.in.code@gmail.com",
   phone: "+91 9361787750",
   heroRoles: [
-    "Software Engineerß",
+    "Software Engineer",
     "DevOps Engineer",
     "Golang Engineer",
     "Cloud Architect",
