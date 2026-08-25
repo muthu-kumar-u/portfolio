@@ -21,12 +21,10 @@ export interface JourneyEntry {
 }
 
 export type SkillCategoryId =
-  | "languages"
-  | "backend"
-  | "frontend"
+  | "systems"
   | "cloud"
-  | "databases"
-  | "ml";
+  | "data"
+  | "product";
 
 export interface Skill {
   name: string;
@@ -37,7 +35,10 @@ export interface Skill {
 export interface SkillCategory {
   id: SkillCategoryId;
   label: string;
-  skills: Skill[];
+  index: string;
+  summary: string;
+  proof: string;
+  skills: string[];
 }
 
 export interface ExperienceEntry {

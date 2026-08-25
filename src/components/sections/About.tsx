@@ -1,77 +1,91 @@
+import { FiBox, FiLayers, FiRadio } from "react-icons/fi";
 import { personal, stats } from "@/data/personal";
-import { journeyEntries } from "@/data/journey";
 import SectionHeading from "@/components/ui/SectionHeading";
 import RichText from "@/components/ui/RichText";
 import Tag from "@/components/ui/Tag";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import Reveal from "@/components/ui/Reveal";
-import { StaggerItem } from "@/components/ui/Reveal";
-import { cn } from "@/lib/utils";
+import Reveal, { StaggerItem } from "@/components/ui/Reveal";
+
+const principles = [
+  {
+    icon: FiLayers,
+    index: "01",
+    title: "Design the boundaries",
+    text: "Start with the workflow, data ownership, and contracts so every service has a reason to exist.",
+  },
+  {
+    icon: FiBox,
+    index: "02",
+    title: "Build the whole path",
+    text: "Carry decisions from API and persistence through the product surface and deployment environment.",
+  },
+  {
+    icon: FiRadio,
+    index: "03",
+    title: "Operate with feedback",
+    text: "Treat CI/CD, metrics, logs, and production troubleshooting as part of the system—not aftercare.",
+  },
+];
 
 export default function About() {
   return (
-    <section id="about" className="py-28">
+    <section id="about" className="section-shell">
       <div className="container-content">
         <SectionHeading eyebrow={personal.aboutEyebrow} title={personal.aboutTitle} />
 
-        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2">
-          <Reveal direction="left">
-            <div className="glass-panel p-8">
-              <div className="grid grid-cols-2 gap-8">
-                {stats.map((stat) => (
-                  <div key={stat.label}>
-                    <p className="font-display text-4xl font-bold text-gradient-brand">
-                      <AnimatedCounter value={stat.value} />
-                    </p>
-                    <p className="mt-1 text-sm text-ink-secondary">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+        <div className="mt-14 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+          <Reveal direction="up" className="space-y-6">
+            {personal.aboutParagraphs.map((paragraph, index) => (
+              <RichText
+                key={index}
+                text={paragraph}
+                className={index === 0
+                  ? "max-w-3xl text-xl leading-relaxed text-ink-primary sm:text-2xl"
+                  : "max-w-2xl leading-relaxed text-ink-secondary"
+                }
+              />
+            ))}
 
-              <div className="mt-10 border-t border-border-subtle pt-6">
-                <p className="mb-3 text-xs uppercase tracking-widest text-ink-muted">
-                  Currently working with
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {personal.currentlyWorkingWith.map((tech) => (
-                    <Tag key={tech}>{tech}</Tag>
-                  ))}
-                </div>
+            <div className="pt-5">
+              <p className="mb-4 font-mono text-[9px] uppercase tracking-[0.16em] text-ink-muted">
+                Current working set
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {personal.currentlyWorkingWith.map((tech) => <Tag key={tech}>{tech}</Tag>)}
               </div>
             </div>
           </Reveal>
 
-          <Reveal direction="right" className="space-y-5">
-            {personal.aboutParagraphs.map((paragraph, index) => (
-              <RichText key={index} text={paragraph} className="leading-relaxed text-ink-secondary" />
-            ))}
+          <Reveal direction="scale" delay={0.08}>
+            <div className="glass-panel grid grid-cols-2 overflow-hidden">
+              {stats.map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={`p-6 sm:p-8 ${index % 2 === 0 ? "border-r border-border/15" : ""} ${index < 2 ? "border-b border-border/15" : ""}`}
+                >
+                  <p className="font-editorial text-4xl text-ink-primary sm:text-5xl">
+                    <AnimatedCounter value={stat.value} />
+                  </p>
+                  <p className="mt-2 font-mono text-[9px] uppercase leading-relaxed tracking-[0.12em] text-ink-muted">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </Reveal>
         </div>
 
-        <Reveal direction="up" stagger={0.15} className="relative mt-20 max-w-2xl">
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-accent-cyan/50 via-border to-transparent" />
-          <div className="space-y-10">
-            {journeyEntries.map((entry) => (
-              <StaggerItem key={entry.id} className="relative pl-8">
-                <span
-                  className={cn(
-                    "absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full",
-                    entry.current
-                      ? "bg-accent-purple shadow-[0_0_0_4px_rgba(139,92,246,0.2)]"
-                      : "border-2 border-accent-cyan bg-base-950",
-                  )}
-                />
-                <p className="font-mono text-xs text-accent-cyan">{entry.date}</p>
-                <p className="mt-1 font-display text-base font-semibold text-ink-primary">
-                  {entry.title}
-                </p>
-                <p className="text-sm font-medium text-accent-purple-light">{entry.company}</p>
-                <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-secondary">
-                  {entry.description}
-                </p>
-              </StaggerItem>
-            ))}
-          </div>
+        <Reveal direction="up" stagger={0.1} className="mt-20 grid gap-px overflow-hidden rounded-[1.5rem] border border-border/15 bg-border/15 md:grid-cols-3">
+          {principles.map((principle) => (
+            <StaggerItem key={principle.index} className="group bg-base-950 p-7 transition-colors hover:bg-base-900 sm:p-9">
+              <div className="flex items-center justify-between">
+                <principle.icon size={18} className="text-accent-purple" />
+                <span className="font-mono text-[9px] text-ink-muted">{principle.index} / 03</span>
+              </div>
+              <h3 className="mt-12 text-lg font-semibold tracking-tight text-ink-primary">{principle.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{principle.text}</p>
+            </StaggerItem>
+          ))}
         </Reveal>
       </div>
     </section>

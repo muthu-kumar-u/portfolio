@@ -4,27 +4,11 @@ interface FloatingParticlesProps {
   count?: number;
 }
 
-export default function FloatingParticles({ count = 120 }: FloatingParticlesProps) {
+export default function FloatingParticles({ count = 75 }: FloatingParticlesProps) {
   return (
     <>
-      <Sparkles
-        count={count}
-        scale={[8, 5, 4]}
-        size={2.2}
-        speed={0.25}
-        opacity={0.5}
-        color="#67e8f9"
-        noise={1}
-      />
-      <Sparkles
-        count={Math.round(count / 3)}
-        scale={[6, 4, 3]}
-        size={3}
-        speed={0.15}
-        opacity={0.4}
-        color="#a78bfa"
-        noise={1.4}
-      />
+      <Sparkles count={count} scale={[6, 6, 4]} size={1.6} speed={0.18} opacity={0.34} color="#c9ff63" noise={1} />
+      <Sparkles count={28} scale={[5, 5, 3]} size={2.2} speed={0.1} opacity={0.28} color="#ab92ff" noise={1.5} />
     </>
   );
 }

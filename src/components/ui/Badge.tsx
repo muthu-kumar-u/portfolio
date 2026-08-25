@@ -18,7 +18,7 @@ export default function Badge({ children, dotColor = "cyan", className, pulse = 
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-border bg-white/[0.03] px-4 py-1.5 font-mono text-xs text-ink-secondary",
+        "inline-flex items-center gap-2 rounded-full border border-border/25 bg-base-900/60 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-secondary backdrop-blur-xl",
         className,
       )}
     >

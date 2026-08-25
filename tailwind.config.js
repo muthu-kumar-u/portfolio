@@ -6,53 +6,54 @@ export default {
     extend: {
       colors: {
         base: {
-          950: "#050810",
-          900: "#080b14",
-          800: "#0c101c",
-          700: "#121729",
-          600: "#1a2036",
+          950: "rgb(var(--base-950) / <alpha-value>)",
+          900: "rgb(var(--base-900) / <alpha-value>)",
+          800: "rgb(var(--base-800) / <alpha-value>)",
+          700: "rgb(var(--base-700) / <alpha-value>)",
+          600: "rgb(var(--base-600) / <alpha-value>)",
         },
         border: {
-          subtle: "rgba(148, 163, 184, 0.12)",
-          DEFAULT: "rgba(148, 163, 184, 0.16)",
+          subtle: "rgb(var(--line-subtle) / <alpha-value>)",
+          DEFAULT: "rgb(var(--line) / <alpha-value>)",
         },
         accent: {
           purple: {
-            DEFAULT: "#8b5cf6",
-            light: "#a78bfa",
-            dark: "#6d28d9",
+            DEFAULT: "rgb(var(--accent-violet) / <alpha-value>)",
+            light: "rgb(var(--accent-violet-light) / <alpha-value>)",
+            dark: "rgb(var(--accent-violet-dark) / <alpha-value>)",
           },
           cyan: {
-            DEFAULT: "#22d3ee",
-            light: "#67e8f9",
-            dark: "#0891b2",
+            DEFAULT: "rgb(var(--accent-signal) / <alpha-value>)",
+            light: "rgb(var(--accent-signal-light) / <alpha-value>)",
+            dark: "rgb(var(--accent-signal-dark) / <alpha-value>)",
           },
         },
         ink: {
-          primary: "#f1f5f9",
-          secondary: "#94a3b8",
-          muted: "#64748b",
+          primary: "rgb(var(--ink-primary) / <alpha-value>)",
+          secondary: "rgb(var(--ink-secondary) / <alpha-value>)",
+          muted: "rgb(var(--ink-muted) / <alpha-value>)",
         },
       },
       fontFamily: {
-        display: ["'Space Grotesk'", "system-ui", "sans-serif"],
-        sans: ["'Inter'", "system-ui", "sans-serif"],
-        mono: ["'JetBrains Mono'", "'Fira Code'", "monospace"],
+        display: ["'Manrope'", "system-ui", "sans-serif"],
+        sans: ["'Manrope'", "system-ui", "sans-serif"],
+        editorial: ["'Newsreader'", "Georgia", "serif"],
+        mono: ["'IBM Plex Mono'", "monospace"],
       },
       backgroundImage: {
-        "gradient-brand": "linear-gradient(135deg, #8b5cf6 0%, #22d3ee 100%)",
+        "gradient-brand": "linear-gradient(135deg, rgb(var(--accent-violet)) 0%, rgb(var(--accent-signal)) 100%)",
         "gradient-radial-glow":
-          "radial-gradient(circle at center, rgba(139, 92, 246, 0.25), rgba(34, 211, 238, 0.08) 45%, transparent 70%)",
+          "radial-gradient(circle at center, rgb(var(--accent-violet) / 0.2), rgb(var(--accent-signal) / 0.08) 45%, transparent 70%)",
         "grid-pattern":
-          "linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px)",
+          "linear-gradient(rgb(var(--line) / 0.24) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--line) / 0.24) 1px, transparent 1px)",
       },
       backgroundSize: {
         grid: "48px 48px",
       },
       boxShadow: {
-        glow: "0 0 40px rgba(139, 92, 246, 0.25)",
-        "glow-cyan": "0 0 40px rgba(34, 211, 238, 0.2)",
-        card: "0 8px 30px rgba(0, 0, 0, 0.35)",
+        glow: "0 20px 70px rgb(var(--accent-violet) / 0.22)",
+        "glow-cyan": "0 20px 70px rgb(var(--accent-signal) / 0.18)",
+        card: "0 24px 80px rgb(var(--shadow) / 0.16)",
       },
       animation: {
         float: "float 6s ease-in-out infinite",

@@ -1,118 +1,65 @@
 import type { SkillCategory } from "@/types";
 
-/**
- * NOTE ON PROFICIENCY NUMBERS
- * The "Languages" tab values below (Golang 95, Python 82, JavaScript 85,
- * TypeScript 82, PHP 70, Node.js 78) come directly from the design reference.
- * The resume does not include numeric self-ratings for every category, so the
- * remaining tabs (Backend, Frontend, Cloud & Infra, Databases, ML / Applied)
- * use reasonable placeholder values, ordered by how central each skill is in
- * the resume/projects. Treat these as a starting point — adjust freely in
- * this file to match your own self-assessment.
- */
+/** Capability groups synthesized from all four resume variants. */
 export const skillCategories: SkillCategory[] = [
   {
-    id: "languages",
-    label: "Languages",
+    id: "systems",
+    index: "01",
+    label: "Backend Systems",
+    summary:
+      "Backend-first engineering for API-driven products, with clear service boundaries and concurrent workflows.",
+    proof:
+      "Used across authentication, product, routine, community, questionnaire, and ML-inference services.",
     skills: [
-      { name: "Golang", level: 95, color: "cyan" },
-      { name: "Python", level: 82, color: "purple" },
-      { name: "JavaScript", level: 85, color: "yellow" },
-      { name: "TypeScript", level: 82, color: "cyan" },
-      { name: "PHP", level: 70, color: "purple" },
-      { name: "Node.js", level: 78, color: "green" },
-    ],
-  },
-  {
-    id: "backend",
-    label: "Backend",
-    skills: [
-      { name: "REST APIs", level: 92, color: "cyan" },
-      { name: "Microservices", level: 88, color: "purple" },
-      { name: "gRPC", level: 80, color: "cyan" },
-      { name: "JWT & Auth", level: 85, color: "green" },
-      { name: "SSE", level: 78, color: "purple" },
-      { name: "Middleware Design", level: 84, color: "yellow" },
-    ],
-  },
-  {
-    id: "frontend",
-    label: "Frontend",
-    skills: [
-      { name: "React", level: 90, color: "cyan" },
-      { name: "TypeScript", level: 82, color: "purple" },
-      { name: "Tailwind CSS", level: 88, color: "cyan" },
-      { name: "Redux-Saga", level: 75, color: "purple" },
-      { name: "HTML / CSS", level: 88, color: "yellow" },
-      { name: "Bootstrap", level: 74, color: "green" },
+      "Golang", "Gin", "Goroutines", "Channels", "Worker pools", "Context",
+      "REST", "gRPC", "Protocol Buffers", "SSE", "JWT / RBAC",
+      "Microservices", "Clean architecture", "System design",
     ],
   },
   {
     id: "cloud",
-    label: "Cloud & Infra",
+    index: "02",
+    label: "Cloud & Delivery",
+    summary:
+      "Infrastructure ownership from provisioning and containerization through automated delivery and operations.",
+    proof:
+      "Deployed product environments with Terraform, Docker, AWS, CI/CD, monitoring, and production troubleshooting.",
     skills: [
-      { name: "AWS (EC2, S3, RDS)", level: 90, color: "cyan" },
-      { name: "Terraform", level: 85, color: "purple" },
-      { name: "Docker", level: 88, color: "cyan" },
-      { name: "GitHub Actions", level: 84, color: "green" },
-      { name: "AWS Lambda / EKS", level: 72, color: "purple" },
-      { name: "CloudWatch / Prometheus", level: 78, color: "yellow" },
+      "AWS EC2", "RDS", "S3", "VPC", "CloudFront", "Route 53", "IAM",
+      "SES", "Secrets Manager", "Lambda", "Terraform", "Docker / Compose",
+      "GitHub Actions", "GitLab CI/CD",
     ],
   },
   {
-    id: "databases",
-    label: "Databases",
+    id: "data",
+    index: "03",
+    label: "Data & Reliability",
+    summary:
+      "Pragmatic data choices and operational feedback loops for database-backed applications.",
+    proof:
+      "Worked with relational, document, cache, and search stores alongside metrics and structured logging.",
     skills: [
-      { name: "PostgreSQL", level: 90, color: "cyan" },
-      { name: "Redis", level: 85, color: "purple" },
-      { name: "MongoDB", level: 80, color: "cyan" },
-      { name: "MySQL", level: 75, color: "green" },
-      { name: "Apache Solr", level: 70, color: "purple" },
+      "PostgreSQL", "MongoDB", "Redis", "MySQL", "Apache Solr",
+      "Prometheus", "CloudWatch", "Structured logging", "Caching",
+      "Production debugging",
     ],
   },
   {
-    id: "ml",
-    label: "ML / Applied",
+    id: "product",
+    index: "04",
+    label: "Product & Applied AI",
+    summary:
+      "Supporting frontend and ML capability to carry backend systems into complete product experiences.",
+    proof:
+      "Integrated model inference, computer vision, OCR, dashboards, and real-time product flows.",
     skills: [
-      { name: "scikit-learn", level: 78, color: "cyan" },
-      { name: "OpenCV", level: 75, color: "purple" },
-      { name: "pandas", level: 72, color: "green" },
+      "Python", "FastAPI", "scikit-learn", "pandas", "KNN", "Decision Trees",
+      "AdaBoost", "OpenCV", "OCR", "React", "TypeScript", "JavaScript",
+      "Redux-Saga",
     ],
   },
 ];
 
-export const allTechnologies: string[] = [
-  "Golang",
-  "Python",
-  "TypeScript",
-  "JavaScript",
-  "PHP",
-  "Node.js",
-  "React",
-  "Tailwind CSS",
-  "Redux-Saga",
-  "FastAPI",
-  "Gin",
-  "Laravel",
-  "gRPC",
-  "REST",
-  "SSE",
-  "JWT",
-  "Microservices",
-  "AWS",
-  "Terraform",
-  "Docker",
-  "Kubernetes",
-  "GitHub Actions",
-  "GitLab CI/CD",
-  "PostgreSQL",
-  "MongoDB",
-  "MySQL",
-  "Redis",
-  "Apache Solr",
-  "scikit-learn",
-  "OpenCV",
-  "pandas",
-  "Prometheus",
-  "CloudWatch",
-];
+export const allTechnologies = Array.from(
+  new Set(skillCategories.flatMap((category) => category.skills)),
+);

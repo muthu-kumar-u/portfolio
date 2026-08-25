@@ -27,19 +27,19 @@ type ButtonAsAnchor = SharedProps &
 type ButtonProps = ButtonAsButton | ButtonAsAnchor;
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300 focus-visible:outline-none disabled:opacity-50 disabled:pointer-events-none";
+  "group inline-flex items-center justify-center gap-2 rounded-full font-mono text-xs uppercase tracking-[0.1em] transition-all duration-300 focus-visible:outline-none disabled:opacity-50 disabled:pointer-events-none";
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    "bg-gradient-brand text-white shadow-glow hover:shadow-[0_0_55px_rgba(139,92,246,0.4)] hover:-translate-y-0.5",
+    "bg-accent-cyan text-base-950 shadow-glow-cyan hover:-translate-y-0.5 hover:brightness-105",
   outline:
-    "border border-border bg-white/[0.02] text-ink-primary hover:border-accent-cyan/50 hover:bg-white/[0.05] hover:-translate-y-0.5",
+    "border border-border/30 bg-base-900/50 text-ink-primary hover:border-accent-violet/60 hover:bg-base-800/80 hover:-translate-y-0.5",
   ghost: "text-ink-secondary hover:text-accent-cyan",
 };
 
 const sizeStyles: Record<Size, string> = {
-  md: "px-6 py-3 text-sm",
-  lg: "px-8 py-4 text-base",
+  md: "px-5 py-3",
+  lg: "px-7 py-4",
 };
 
 export default function Button(props: ButtonProps) {

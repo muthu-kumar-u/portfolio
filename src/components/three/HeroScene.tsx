@@ -12,13 +12,13 @@ export default function HeroScene() {
 
   return (
     <Canvas
-      camera={{ position: [0, 0, 5.5], fov: 45 }}
-      dpr={[1, 1.75]}
+      camera={{ position: [0, 0, 6], fov: 42 }}
+      dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       style={{ background: "transparent" }}
     >
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[3, 3, 4]} intensity={0.5} color="#a78bfa" />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[3, 3, 4]} intensity={0.65} color="#cdbfff" />
 
       <Suspense fallback={null}>
         <GlowOrb />
@@ -26,8 +26,8 @@ export default function HeroScene() {
         <FloatingParticles />
         <EffectComposer>
           <Bloom
-            intensity={0.55}
-            luminanceThreshold={0.15}
+            intensity={0.42}
+            luminanceThreshold={0.3}
             luminanceSmoothing={0.9}
             mipmapBlur
           />

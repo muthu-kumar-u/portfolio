@@ -11,7 +11,7 @@ interface AnimatedCounterProps {
 export default function AnimatedCounter({ value, duration = 1.4, className }: AnimatedCounterProps) {
   const match = value.match(/^(\d+)(.*)$/);
   const target = match ? parseInt(match[1], 10) : 0;
-  const suffix = match ? match[2] : value;
+  const suffix = match ? match[2] : "";
 
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.6 });
@@ -29,8 +29,7 @@ export default function AnimatedCounter({ value, duration = 1.4, className }: An
 
   return (
     <span ref={ref} className={className}>
-      {display}
-      {suffix}
+      {match ? `${display}${suffix}` : value}
     </span>
   );
 }
