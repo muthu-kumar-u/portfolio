@@ -1,6 +1,6 @@
 import type { Project } from "@/types";
 
-/** Selected work shared across the four resume variants. */
+/** A curated subset of the broader project history. */
 export const projects: Project[] = [
   {
     id: "catepilla",
@@ -18,12 +18,12 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "clenz",
-    name: "Clenz",
-    tagline: "AI-powered skincare platform",
+    id: "clenz-mobile",
+    name: "Clenz Mobile",
+    tagline: "AI-powered skincare mobile platform",
     role: "Systems · Applied AI · Cloud",
     description:
-      "A backend and inference ecosystem for skincare routines, product discovery, community features, and real-time AI-assisted analysis.",
+      "A mobile skincare product backed by services for routines, product discovery, community features, and real-time AI-assisted analysis.",
     highlights: [
       "Designed Go services for auth, product, routine, community, and ML-inference workflows",
       "Connected REST, gRPC, and SSE flows with PostgreSQL, MongoDB, Redis, and Solr",
@@ -46,6 +46,7 @@ export const projects: Project[] = [
     ],
     stack: ["Python", "FastAPI", "scikit-learn", "pandas", "TypeScript", "Vite", "PostgreSQL", "AWS", "Docker Compose"],
     link: "https://ai.originesecret.com",
+    featured: true,
   },
   {
     id: "formtheta",
@@ -63,3 +64,11 @@ export const projects: Project[] = [
     link: "https://formtheta.com",
   },
 ];
+
+export const featuredProjects = projects.filter((project) => project.featured);
+export const additionalProjects = projects.filter((project) => !project.featured);
+
+export const projectPortfolio = {
+  totalDelivered: 7,
+  showcased: projects.length,
+} as const;

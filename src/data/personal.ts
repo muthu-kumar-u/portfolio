@@ -1,4 +1,5 @@
 import type { NavLink, Stat } from "@/types";
+import { projectPortfolio } from "@/data/projects";
 
 export const personal = {
   firstName: "Muthu",
@@ -44,7 +45,7 @@ export const personal = {
 
 export const stats: Stat[] = [
   { label: "Years Experience", value: "3+" },
-  { label: "Core Products", value: "4" },
+  { label: "Projects Delivered", value: `${projectPortfolio.totalDelivered}+` },
   { label: "Engineering Layers", value: "3" },
   { label: "Primary Language", value: "Go" },
 ];

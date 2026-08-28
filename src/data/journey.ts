@@ -15,7 +15,7 @@ export const journeyEntries: JourneyEntry[] = [
     title: "Full Stack Developer",
     company: "NRG Phoenix Technology",
     description:
-      "On-site full-stack role delivering the Agas National admin portal and Career Portal with Laravel, PHP, and GitLab CI/CD pipelines.",
+      "On-site full-stack role delivering database-backed business applications, REST integrations, and GitLab CI/CD pipelines across the full SDLC.",
   },
   {
     id: "software-development-engineer",
