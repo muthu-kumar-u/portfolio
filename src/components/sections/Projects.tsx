@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiArrowUpRight, FiChevronDown } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi";
 import {
   additionalProjects,
   featuredProjects,
